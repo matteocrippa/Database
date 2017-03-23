@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'Database_Example' do
+  pod 'Database', :path => '../'
+
+  target 'Database_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
