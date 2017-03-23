@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'Database'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of Database.'
+  s.summary          = 'A database wrapper for realm.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,25 +18,21 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Database singleton wrapper for Realm
                        DESC
 
   s.homepage         = 'https://github.com/matteocrippa/Database'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'matteocrippa' => 'matteo@boostco.de' }
+  s.author           = { 'matteocrippa' => '@ghego20' }
   s.source           = { :git => 'https://github.com/matteocrippa/Database.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.social_media_url = 'https://twitter.com/ghego20'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
+  s.tvos.deployment_target = '9.0'
 
   s.source_files = 'Database/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'Database' => ['Database/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'SwiftyJSON', '~> 3.0.0'
+  s.dependency 'RealmSwift', '~> 2.4.3'
+  s.dependency 'SwiftyJSONRealmObject', '~> 0.1.0'
 end
