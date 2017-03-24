@@ -18,13 +18,13 @@ public enum DatabaseDebugVerbosity {
   case message
 }
 
-open enum DatabaseWriteType: String {
+public enum DatabaseWriteType: String {
   case memory = "inMemory"
   case disk = "onDisk"
 }
 
 /// Database configuration struct
-open struct DatabaseConfiguration{
+public struct DatabaseConfiguration{
   var name = ""
   var type: DatabaseWriteType = .disk
   var debug: DatabaseDebugVerbosity = .none
