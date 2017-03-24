@@ -18,13 +18,13 @@ public enum DatabaseDebugVerbosity {
   case message
 }
 
-public enum DatabaseWriteType: String {
+open enum DatabaseWriteType: String {
   case memory = "inMemory"
   case disk = "onDisk"
 }
 
 /// Database configuration struct
-public struct DatabaseConfiguration{
+open struct DatabaseConfiguration{
   var name = ""
   var type: DatabaseWriteType = .disk
   var debug: DatabaseDebugVerbosity = .none
@@ -53,19 +53,19 @@ fileprivate extension Databaseable {
   func save<T>(type: T.Type, json: JSON, deleteAll: Bool = false, isSingle: Bool = false) where T: SwiftyJSONRealmObject {}
 }
 
-public class Database: Databaseable {
+open class Database: Databaseable {
 
   /// Shared instance
-  static var shared = Database()
+  open static var shared = Database()
   private init() {}
 
   /// Database handler
-  var database: Realm?
+  open var database: Realm?
 
   /// Database configuration
   var configuration: DatabaseConfiguration?
 
-  func configure(configuration: DatabaseConfiguration) {
+  open func configure(configuration: DatabaseConfiguration) {
 
     // set debug status
     self.configuration = configuration
@@ -106,7 +106,7 @@ public class Database: Databaseable {
   ///   - type: object type
   ///   - key: key to filter items
   /// - Returns: return an object
-  func get<T: Object, K>(type: T.Type, key: K) -> T? {
+  open func get<T: Object, K>(type: T.Type, key: K) -> T? {
 
     guard let database = database else {
       debug(error: "instance not available")
@@ -120,7 +120,7 @@ public class Database: Databaseable {
   ///
   /// - Parameter type: type of object
   /// - Returns: return a result list of type
-  func get<T>(type: T.Type) -> Results<T>? {
+  open func get<T>(type: T.Type) -> Results<T>? {
 
     guard let database = database else {
       debug(error: "instance not available")
@@ -133,7 +133,7 @@ public class Database: Databaseable {
   /// Save a sequence of object in database
   ///
   /// - Parameter objects: objects to be saved
-  func save<S: Sequence>(objects: S) where S.Iterator.Element: Object {
+  open func save<S: Sequence>(objects: S) where S.Iterator.Element: Object {
     /// Get the current database instance
     guard let database = database else {
       debug(error: "instance not available")
@@ -153,7 +153,7 @@ public class Database: Databaseable {
   /// Save an object in database
   ///
   /// - Parameter object: object item
-  func save(object: Object) {
+  open func save(object: Object) {
 
     /// Get the current database instance
     guard let database = database else {
@@ -178,7 +178,7 @@ public class Database: Databaseable {
   ///   - json: json content
   ///   - deleteAll: if we want to delete all the items before
   ///   - isSingle: if we have to add only an item
-  func save<T>(type: T.Type, json: JSON, deleteAll: Bool = false, isSingle: Bool = false) where T: SwiftyJSONRealmObject {
+  open func save<T>(type: T.Type, json: JSON, deleteAll: Bool = false, isSingle: Bool = false) where T: SwiftyJSONRealmObject {
 
     /// Get the current database instance
     guard let database = database else {
@@ -210,7 +210,7 @@ public class Database: Databaseable {
   /// Delete objects from realm
   ///
   /// - Parameter object: Object of realm type
-  func delete(object: Object) {
+  open func delete(object: Object) {
 
     /// Get the current database instance
     guard let database = database else {
