@@ -24,7 +24,7 @@ public enum DatabaseWriteType: String {
 }
 
 /// Database configuration struct
-public struct DatabaseConfiguration{
+open struct DatabaseConfiguration{
   var name = ""
   var type: DatabaseWriteType = .disk
   var debug: DatabaseDebugVerbosity = .none
