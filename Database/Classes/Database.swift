@@ -24,13 +24,13 @@ public enum DatabaseWriteType: String {
 }
 
 /// Database configuration struct
-public struct DatabaseConfiguration {
+public struct DatabaseConfiguration{
   var name = ""
   var type: DatabaseWriteType = .disk
   var debug: DatabaseDebugVerbosity = .none
 }
 
-fileprivate protocol Databaseable {
+fileprivate protocol Databaseable: class {
   static var shared: Database { get }
 
   var database: Realm? { get }
