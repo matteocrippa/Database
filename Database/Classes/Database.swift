@@ -28,6 +28,12 @@ open class DatabaseConfiguration{
   var name = ""
   var type: DatabaseWriteType = .disk
   var debug: DatabaseDebugVerbosity = .none
+  
+  public init(name: String = "", type: DatabaseWriteType = .disk, debug: DatabaseDebugVerbosity = .none) {
+    self.name = name
+    self.type = type
+    self.debug = debug
+  }
 }
 
 fileprivate protocol Databaseable: class {
