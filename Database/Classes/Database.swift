@@ -133,7 +133,7 @@ open class Database: Databaseable {
       return nil
     }
 
-    return database.objects(type)
+    return database.objects(type as! Object.Type) as? Results<T>
   }
 
   /// Save a sequence of object in database
