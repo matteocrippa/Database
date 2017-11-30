@@ -33,6 +33,6 @@ Database singleton wrapper for Realm
   s.source_files = 'Database/Classes/**/*'
   
   s.dependency 'SwiftyJSON', '~> 4'
-  s.dependency 'RealmSwift', '~> 2'
+  s.dependency 'RealmSwift', '~> 3'
   s.dependency 'SwiftyJSONRealmObject', '~> 1'
 end
