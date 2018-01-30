@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Database'
-  s.version          = '0.1.8'
+  s.version          = '0.1.9'
   s.summary          = 'A database wrapper for realm.'
 
 # This description is used to generate tags and improve search results.
@@ -33,6 +33,6 @@ Database singleton wrapper for Realm
   s.source_files = 'Database/Classes/**/*'
   
   s.dependency 'SwiftyJSON', '~> 4'
-  s.dependency 'RealmSwift', '~> 3'
+  s.dependency 'RealmSwift', '~> 4'
   s.dependency 'SwiftyJSONRealmObject', '~> 1'
 end
